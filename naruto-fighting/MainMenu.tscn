@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://ljypd8k5wq7r"]
+
+[ext_resource type="Texture2D" uid="uid://cwdy1xe3bjqwx" path="res://assets/banner.jpg" id="1_0wm6o"]
+[ext_resource type="Texture2D" uid="uid://c55fxgkhyois" path="res://assets/play-button.png" id="1_2hb55"]
+[ext_resource type="AudioStream" uid="uid://cfomdovvjbw2w" path="res://assets/audio/Yasuharu Takanashi - The Crying God.mp3" id="3_tckb4"]
+
+[sub_resource type="SystemFont" id="SystemFont_0rmd3"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="GameTitle" type="Label" parent="Control"]
+modulate = Color(0.0534209, 0.0534209, 0.0534209, 1)
+self_modulate = Color(0.0475577, 0.0475576, 0.0475576, 1)
+top_level = true
+light_mask = 8197
+visibility_layer = 524289
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.2
+offset_left = 282.0
+offset_top = -1.0
+offset_right = -291.0
+offset_bottom = -42.6
+text = "Shadows of THE  SHINOBI"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="StartButton" type="Button" parent="Control"]
+texture_filter = 1
+use_parent_material = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 417.0
+offset_top = 152.0
+offset_right = 678.0
+offset_bottom = 284.0
+theme_override_colors/font_disabled_color = Color(0.780392, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.929601, 0.172259, 0.377823, 1)
+theme_override_colors/font_hover_color = Color(0.991819, 0.889792, 0.900296, 1)
+theme_override_colors/font_pressed_color = Color(0.672891, 0.669707, 0.984118, 1)
+theme_override_colors/font_focus_color = Color(0.648783, 0.142275, 0.739612, 1)
+theme_override_colors/font_color = Color(0.970602, 0.970602, 0.970602, 1)
+theme_override_fonts/font = SubResource("SystemFont_0rmd3")
+theme_override_font_sizes/font_size = 32
+theme_override_icons/icon = ExtResource("1_2hb55")
+text = "Start Game"
+icon_alignment = 1
+expand_icon = true
+
+[node name="QuitButton" type="Button" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 431.0
+offset_top = 395.0
+offset_right = 688.0
+offset_bottom = 525.0
+text = "Quit Game"
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.404511, 0.404511, 0.404511, 1)
+show_behind_parent = true
+visibility_layer = 524289
+position = Vector2(574, 327)
+scale = Vector2(2.24805, 1.26562)
+texture = ExtResource("1_0wm6o")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_tckb4")

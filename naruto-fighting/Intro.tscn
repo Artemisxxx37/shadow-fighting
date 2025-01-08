@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://cb02wbf2vsmtc"]
+
+[ext_resource type="Texture2D" uid="uid://crxmltwbtxx65" path="res://assets/jeece.jpg" id="1_emwhp"]
+[ext_resource type="Script" path="res://intro.gd" id="1_oue3j"]
+[ext_resource type="AudioStream" uid="uid://cfomdovvjbw2w" path="res://assets/audio/Yasuharu Takanashi - The Crying God.mp3" id="3_0elwh"]
+
+[sub_resource type="Animation" id="Animation_fkrja"]
+resource_name = "fade_in"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.06667, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nsqyn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ruhsa"]
+resource_name = "fade_out"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.980392)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wjgvs"]
+_data = {
+"RESET": SubResource("Animation_nsqyn"),
+"fade_in": SubResource("Animation_fkrja"),
+"fade_out": SubResource("Animation_ruhsa")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_oue3j")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(577.5, 321)
+scale = Vector2(1.79219, 1.41071)
+texture = ExtResource("1_emwhp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -78.0
+offset_top = -78.0
+offset_right = 1234.0
+offset_bottom = 728.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wjgvs")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0elwh")
+autoplay = true
+max_distance = 2010.0
+parameters/looping = false
